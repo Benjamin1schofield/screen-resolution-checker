@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Screen Resolution Checker</title>
+<style>
+body{font-family:Arial;background:#020617;color:white;padding:25px}
+main{max-width:650px;margin:auto;background:#0f172a;padding:30px;border-radius:18px}
+.info{background:#1e293b;padding:18px;margin:12px 0;border-radius:10px}
+strong{display:block;color:#38bdf8;font-size:23px;margin-top:8px}
+button{background:#0284c7;color:white;border:0;padding:13px 20px;border-radius:8px;cursor:pointer}
+</style>
+</head>
+<body>
+<main>
+<h1>Screen Resolution Checker</h1>
+<p>Explore your browser and display dimensions.</p>
+<div class="info">Screen Dimensions (CSS pixels)<strong id="resolution"></strong></div>
+<div class="info">Browser Viewport<strong id="viewport"></strong></div>
+<div class="info">Device Pixel Ratio<strong id="ratio"></strong></div>
+<div class="info">Screen Orientation<strong id="orientation"></strong></div>
+<div class="info">Color Depth<strong id="depth"></strong></div>
+<button onclick="update()">Refresh Information</button>
+</main>
+<script>
+function update(){
+ document.getElementById("resolution").textContent=
+ screen.width+" × "+screen.height;
+ document.getElementById("viewport").textContent=
+ window.innerWidth+" × "+window.innerHeight;
+ document.getElementById("ratio").textContent=
+ window.devicePixelRatio.toFixed(2);
+ document.getElementById("orientation").textContent=
+ screen.orientation?.type||(screen.width>=screen.height?"Landscape":"Portrait");
+ document.getElementById("depth").textContent=
+ screen.colorDepth+" bits";
+}
+window.addEventListener("resize",update);
+update();
+</script>
+</body>
+</html>
