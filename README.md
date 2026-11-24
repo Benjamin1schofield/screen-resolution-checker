@@ -22,3 +22,12 @@ Open the application to inspect your display information.
 ## Running Locally
 
 Open `index.html` in a modern web browser.
+## Manual Testing Checklist
+
+- [ ] Compare screen width and height with device settings.
+- [ ] Resize the window and check the viewport values.
+- [ ] Review the displayed device pixel ratio.
+
+### Test Notes
+
+Record the observed result and any reproducible issue after running the tests.
